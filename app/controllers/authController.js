@@ -20,6 +20,11 @@ const login = (req, res) => {
   res.status(401).send({ error: 'User not found' });
 };
 
+const ping = (req, res) => {
+  res.status(200).send({ msg: 'pong' });
+};
+
 export default {
   login,
+  ping,
 };

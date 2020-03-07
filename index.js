@@ -37,11 +37,9 @@ app.use(function(req, res, next) {
 
 app.use(authMiddleware);
 
-app.route('/api/login').post(authController.login);
+app.post('/api/login', authController.login);
 
-app.get('/api/ping', (req, res) => {
-  res.status(200).send({ msg: 'pong' });
-});
+app.get('/api/ping', authController.ping);
 
 app.listen(port, () => {
   console.log(`server started at http://localhost:${port}`);
